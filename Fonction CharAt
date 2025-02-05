@@ -1,0 +1,68 @@
+public class Main {
+	public static void main(String[] args) {
+		MyFrame2 frame2 = new MyFrame2();
+	}
+}
+
+
+public class MyFrame2 extends JFrame implements ActionListener {
+
+	    private JTextPane textpane;  
+	    private JTextPane textpane2; 
+	    private JLabel outputLabel;       
+	    private JButton bouton;
+
+	    MyFrame2() {
+
+	    	this.setTitle("La Fonction CharAt() en Java");
+	        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        this.setSize(800, 600);
+	        this.setLayout(new FlowLayout());
+	        
+	        ImageIcon image = new ImageIcon("logo-UGA-carrousel.png");
+	        this.setIconImage(image.getImage());
+
+	        textpane = new JTextPane();	        	
+	        textpane2 = new JTextPane();
+	        textpane.setPreferredSize(new Dimension(250, 40));
+	        textpane2.setPreferredSize(new Dimension(250, 40));
+	        
+	        bouton = new JButton("Valider");
+	        bouton.addActionListener(this);
+
+	        outputLabel = new JLabel("Résultat : ");
+	        outputLabel.setPreferredSize(new Dimension(200, 40));
+	        outputLabel.setForeground(Color.BLUE);
+	      
+	        this.add(new JLabel("Mot :"));
+	        this.add(textpane);
+	        this.add(new JLabel("Indice :"));
+	        this.add(textpane2);
+	        this.add(bouton);
+	        this.add(outputLabel);
+	        this.setIconImage(image.getImage());
+
+	        this.setVisible(true);
+	    }
+
+	    @Override
+	    public void actionPerformed(ActionEvent e) {
+	        if (e.getSource() == bouton) {
+	            String mot = textpane.getText();
+	            String indexText = textpane2.getText();
+
+	            try {
+	                int index = Integer.parseInt(indexText);
+	                
+	                if (index < 0 || index >= mot.length()) {
+	                    outputLabel.setText("Indice invalide");
+	                } else {
+	                    char result = mot.charAt(index);
+	                    outputLabel.setText("Caractère : " + result);
+	                }
+	            } catch (NumberFormatException ex) {
+	                outputLabel.setText("Indice invalide");
+	            }
+	        }
+	    }
+	}
