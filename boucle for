@@ -92,9 +92,8 @@ public class ForLoopVisualizer extends JFrame {
     private void showHelpDialog() {
         String helpText = "<html><b>Explications:</b><br>"
                 + "- <b>for (int i = début; condition; incrément) { ... }</b><br>"
-                + "- Choisissez l'opérateur de comparaison (<, <=, >, >=)<br>"
-                + "- Le corps de la boucle affichera chaque valeur de i<br>"
-                + "- Les éléments en <b>gras</b> sont fixes dans la syntaxe</html>";
+                + "- Choisissez l'opérateur de comparaison <br>"
+                + "- Le corps de la boucle affichera chaque valeur de i<br>";
         
         JOptionPane.showMessageDialog(this, helpText, "Aide", JOptionPane.INFORMATION_MESSAGE);
     }
